@@ -9,6 +9,8 @@
 - [nodejs](https://nodejs.org) 
 - [npm](https://www.npmjs.com/)
 
+---
+
 
 To run this project, you need to have nodejs, npm installed and set up in your system.
 
@@ -35,6 +37,8 @@ or
 ```
 nodemon server.js
 ```
+
+
 
 
 
