@@ -37,36 +37,11 @@ let initialFilterState = {
 
 let filteredProjects;
 
-// let filtersApplied = {
-//   featured: true,
-//   categoryIds: [],
-//   fundingGoal: {
-//     min: 0,
-//     max: 10000
-//   },
-//   minimumPercentage: 0
-// }
-
-// let filtered = projectListings
-
-
-
 // get all project listings
 app.get("/projects", (req, res) => {
   res.send([projectListings, notifications]);
 });
 
-// get all filtered project listings
-// app.get("/filteredProjects", (req, res) => {
-//   console.log('de kidakkunu', filteredProjects);
-  
-//   res.send(filteredProjects);
-// });
-
-// get all notification
-// app.get("/notifications", (req, res) => {
-//   res.send(notifications);
-// });
 
 
 app.post('/filters', function(req, res) {
@@ -106,21 +81,17 @@ app.post('/filters', function(req, res) {
     applyFilterFeatured = applyFilterPercentageComplete
   }
   
-
   filteredProjects = applyFilterFeatured;
-  
-  
-  
-  console.log('filteredProjects', filteredProjects.length);
+   
+  // console.log('filteredProjects', filteredProjects.length);
 
   let notificationProjectIds = filteredProjects.map(project => project.projectId)
-  console.log('notificationProjectIds', notificationProjectIds);
+  // console.log('notificationProjectIds', notificationProjectIds);
   let filteredNotifications = notifications.filter((notification) => {
     return notificationProjectIds.indexOf(notification.projectId) > -1
   })
-  
-  
-  console.log('filteredNotifications', filteredNotifications.length);
+   
+  // console.log('filteredNotifications', filteredNotifications.length);
   
   res.send([filteredProjects,filteredNotifications]);
   // res.send("filters set -- response from server")
